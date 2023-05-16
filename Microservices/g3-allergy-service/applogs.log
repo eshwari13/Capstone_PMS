@@ -1,0 +1,95 @@
+2023-04-18T00:25:08.312+05:30  INFO 14164 --- [restartedMain] c.c.a.AllergyServiceApplication          : Starting AllergyServiceApplication using Java 17.0.6 with PID 14164 (C:\Users\prath\OneDrive\Desktop\krunalfinalnew\Capstone-PMS\Microservices\g3-allergy-service\target\classes started by prath in C:\Users\prath\OneDrive\Desktop\krunalfinalnew\Capstone-PMS\Microservices\g3-allergy-service)
+2023-04-18T00:25:08.318+05:30  INFO 14164 --- [restartedMain] c.c.a.AllergyServiceApplication          : The following 1 profile is active: "production"
+2023-04-18T00:25:08.374+05:30  INFO 14164 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-18T00:25:08.375+05:30  INFO 14164 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-18T00:25:09.759+05:30  INFO 14164 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-18T00:25:09.933+05:30  INFO 14164 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 161 ms. Found 1 JPA repository interfaces.
+2023-04-18T00:25:10.193+05:30  INFO 14164 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b4743ae2-2060-3986-be4b-628a2467b7a6
+2023-04-18T00:25:10.303+05:30  INFO 14164 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-04-18T00:25:10.358+05:30  INFO 14164 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-04-18T00:25:10.810+05:30  INFO 14164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9002 (http)
+2023-04-18T00:25:10.824+05:30  INFO 14164 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-18T00:25:10.825+05:30  INFO 14164 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-04-18T00:25:10.895+05:30  INFO 14164 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-18T00:25:10.896+05:30  INFO 14164 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2519 ms
+2023-04-18T00:25:11.150+05:30  INFO 14164 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-18T00:25:11.225+05:30  INFO 14164 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-18T00:25:11.552+05:30  INFO 14164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-18T00:25:34.376+05:30  INFO 14164 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6ac8cf8c
+2023-04-18T00:25:34.379+05:30  INFO 14164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-18T00:25:34.575+05:30  INFO 14164 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-04-18T00:25:35.685+05:30  INFO 14164 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-18T00:25:35.696+05:30  INFO 14164 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-18T00:25:36.051+05:30  WARN 14164 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-18T00:25:37.392+05:30  INFO 14164 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-18T00:25:37.534+05:30  WARN 14164 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-04-18T00:25:37.543+05:30  INFO 14164 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2023-04-18T00:25:37.667+05:30  INFO 14164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9002 (http) with context path ''
+2023-04-18T00:25:37.672+05:30  INFO 14164 --- [restartedMain] o.s.c.c.s.ConsulServiceRegistry          : Registering service with consul: NewService{id='g3-allergy-service-9002', name='g3-allergy-service', tags=[], address='http://ec2-65-0-129-226.ap-south-1.compute.amazonaws.com', meta={secure=false}, port=9002, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='10s', ttl='null', http='http://ec2-65-0-129-226.ap-south-1.compute.amazonaws.com:9002/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+2023-04-18T00:25:47.946+05:30  INFO 14164 --- [restartedMain] c.c.a.AllergyServiceApplication          : Started AllergyServiceApplication in 50.793 seconds (process running for 53.424)
+2023-04-18T00:25:49.475+05:30  INFO 14164 --- [RMI TCP Connection(5)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-18T00:25:49.475+05:30  INFO 14164 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-18T00:25:49.477+05:30  INFO 14164 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-04-18T00:26:39.030+05:30  INFO 14164 --- [catalogWatchTaskScheduler-1] o.apache.http.impl.execchain.RetryExec   : I/O exception (java.net.SocketException) caught when processing request to {}->http://ec2-65-0-129-226.ap-south-1.compute.amazonaws.com:8500: Connection reset
+2023-04-18T00:26:39.030+05:30  INFO 14164 --- [configWatchTaskScheduler-1] o.apache.http.impl.execchain.RetryExec   : I/O exception (java.net.SocketException) caught when processing request to {}->http://ec2-65-0-129-226.ap-south-1.compute.amazonaws.com:8500: Connection reset
+2023-04-18T00:26:39.030+05:30  INFO 14164 --- [configWatchTaskScheduler-1] o.apache.http.impl.execchain.RetryExec   : Retrying request to {}->http://ec2-65-0-129-226.ap-south-1.compute.amazonaws.com:8500
+2023-04-18T00:26:39.030+05:30  INFO 14164 --- [catalogWatchTaskScheduler-1] o.apache.http.impl.execchain.RetryExec   : Retrying request to {}->http://ec2-65-0-129-226.ap-south-1.compute.amazonaws.com:8500
+2023-04-18T00:27:39.825+05:30  INFO 14164 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 14 class path changes (0 additions, 14 deletions, 0 modifications)
+2023-04-18T00:27:39.899+05:30  INFO 14164 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-18T00:27:39.904+05:30  INFO 14164 --- [Thread-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-04-18T00:27:39.925+05:30  INFO 14164 --- [Thread-7] o.s.c.c.s.ConsulServiceRegistry          : Deregistering service with consul: g3-allergy-service-9002
+2023-04-18T00:27:40.266+05:30  INFO 14164 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-18T00:27:40.285+05:30  INFO 14164 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-18T00:27:40.303+05:30  INFO 14164 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-18T00:27:40.558+05:30 ERROR 14164 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+No spring.config.import property has been defined
+
+Action:
+
+Add a spring.config.import=consul: property to your configuration.
+	If configuration is not required add spring.config.import=optional:consul: instead.
+	To disable this check, set spring.cloud.consul.config.enabled=false or 
+	spring.cloud.consul.config.import-check.enabled=false.
+
+2023-04-18T00:27:42.773+05:30  INFO 14164 --- [restartedMain] c.c.a.AllergyServiceApplication          : Starting AllergyServiceApplication using Java 17.0.6 with PID 14164 (C:\Users\prath\OneDrive\Desktop\krunalfinalnew\Capstone-PMS\Microservices\g3-allergy-service\target\classes started by prath in C:\Users\prath\OneDrive\Desktop\krunalfinalnew\Capstone-PMS\Microservices\g3-allergy-service)
+2023-04-18T00:27:42.774+05:30  INFO 14164 --- [restartedMain] c.c.a.AllergyServiceApplication          : The following 1 profile is active: "production"
+2023-04-18T00:27:43.498+05:30  INFO 14164 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-18T00:27:43.499+05:30  INFO 14164 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2023-04-18T00:27:43.580+05:30  INFO 14164 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9c53e544-d895-32f3-9539-df8e84128ac8
+2023-04-18T00:27:43.608+05:30  INFO 14164 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-04-18T00:27:43.611+05:30  INFO 14164 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-04-18T00:27:43.733+05:30  INFO 14164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9002 (http)
+2023-04-18T00:27:43.734+05:30  INFO 14164 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-18T00:27:43.735+05:30  INFO 14164 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-04-18T00:27:43.778+05:30  INFO 14164 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-18T00:27:43.778+05:30  INFO 14164 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1000 ms
+2023-04-18T00:27:44.011+05:30  INFO 14164 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-18T00:27:44.026+05:30  INFO 14164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-04-18T00:27:45.717+05:30  INFO 14164 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6cabfad8
+2023-04-18T00:27:45.718+05:30  INFO 14164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-04-18T00:27:45.859+05:30  INFO 14164 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-04-18T00:27:46.856+05:30  INFO 14164 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-18T00:27:46.857+05:30  INFO 14164 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-18T00:27:46.962+05:30  WARN 14164 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-18T00:27:47.624+05:30  INFO 14164 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-18T00:27:47.727+05:30  WARN 14164 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-04-18T00:27:47.731+05:30  INFO 14164 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2023-04-18T00:27:47.767+05:30  INFO 14164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9002 (http) with context path ''
+2023-04-18T00:27:47.770+05:30  INFO 14164 --- [restartedMain] o.s.c.c.s.ConsulServiceRegistry          : Registering service with consul: NewService{id='g3-allergy-service-9002', name='g3-allergy-service', tags=[], address='http://ec2-65-0-129-226.ap-south-1.compute.amazonaws.com', meta={secure=false}, port=9002, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='10s', ttl='null', http='http://ec2-65-0-129-226.ap-south-1.compute.amazonaws.com:9002/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+2023-04-18T00:27:48.129+05:30  INFO 14164 --- [restartedMain] c.c.a.AllergyServiceApplication          : Started AllergyServiceApplication in 6.14 seconds (process running for 173.607)
+2023-04-18T00:27:48.135+05:30  INFO 14164 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-04-18T00:29:09.528+05:30  INFO 14164 --- [RMI TCP Connection(9)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-04-18T00:29:09.588+05:30  INFO 14164 --- [RMI TCP Connection(9)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-18T00:29:09.615+05:30  INFO 14164 --- [RMI TCP Connection(9)-127.0.0.1] o.s.c.c.s.ConsulServiceRegistry          : Deregistering service with consul: g3-allergy-service-9002
+2023-04-18T00:29:09.628+05:30  INFO 14164 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-04-18T00:29:09.762+05:30  INFO 14164 --- [RMI TCP Connection(12)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-04-18T00:29:09.786+05:30  INFO 14164 --- [RMI TCP Connection(9)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-18T00:29:09.801+05:30  INFO 14164 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-04-18T00:29:09.824+05:30  INFO 14164 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.

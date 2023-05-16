@@ -1,0 +1,1344 @@
+2023-04-17T01:22:30.802+05:30  INFO 14760 --- [configWatchTaskScheduler-1] o.apache.http.impl.execchain.RetryExec   : I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8500: An established connection was aborted by the software in your host machine
+2023-04-17T01:22:30.949+05:30  INFO 14760 --- [catalogWatchTaskScheduler-1] o.apache.http.impl.execchain.RetryExec   : I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8500: An established connection was aborted by the software in your host machine
+2023-04-17T01:22:31.148+05:30  INFO 14760 --- [configWatchTaskScheduler-1] o.apache.http.impl.execchain.RetryExec   : Retrying request to {}->http://localhost:8500
+2023-04-17T01:22:31.160+05:30  INFO 14760 --- [catalogWatchTaskScheduler-1] o.apache.http.impl.execchain.RetryExec   : Retrying request to {}->http://localhost:8500
+2023-04-17T01:22:31.276+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:31.280+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:31.289+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:31.294+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:31.275+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:32.304+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:32.318+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:32.319+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:32.322+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:32.858+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:33.353+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:33.382+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:33.386+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:33.389+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:33.865+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:34.395+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:34.398+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:34.402+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:34.425+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:34.893+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:35.458+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:35.474+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:35.476+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:35.489+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:35.907+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:36.517+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:36.533+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:36.534+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:36.580+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:36.936+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:37.609+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:37.624+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:37.630+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:37.655+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:37.952+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:38.679+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:38.711+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:38.713+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:38.742+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:38.962+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:39.769+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:39.799+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:39.804+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:39.831+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:39.988+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:40.866+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:40.882+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:40.899+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:40.913+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:41.008+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:41.960+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:41.976+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:41.992+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:42.006+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:42.039+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:43.030+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:43.054+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:43.054+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:43.070+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:43.069+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:44.081+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:44.081+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:44.096+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:44.112+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:44.127+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:45.114+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:45.146+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:45.161+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:45.177+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:45.193+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:46.146+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:46.223+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:46.239+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:46.242+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:46.254+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:47.172+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:47.281+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:47.297+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:47.297+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:47.313+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:48.175+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:48.330+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:48.345+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:48.345+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:48.362+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:49.202+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:49.403+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:49.434+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:49.451+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:49.466+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:50.222+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:50.503+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:50.503+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:50.503+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:50.518+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:51.227+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:51.522+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:51.554+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:51.556+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:51.571+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:52.248+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:52.592+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:52.592+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:52.592+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:52.608+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:53.280+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:53.625+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:53.640+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:53.656+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:53.687+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:54.299+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:54.691+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:54.722+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:54.722+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:54.738+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:55.328+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:55.744+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:55.759+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:55.791+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:55.807+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:56.355+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:56.826+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:56.842+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:56.857+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:56.857+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:57.375+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:57.878+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:57.878+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:57.893+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:57.893+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:58.385+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:58.927+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:58.943+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:58.945+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:58.958+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:59.415+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:22:59.975+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:22:59.991+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:23:00.008+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:23:00.012+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:23:00.433+05:30 ERROR 14760 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-17T01:23:01.035+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:23:01.037+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/g3-patient-health-records-service/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:23:01.039+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application,local/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:23:01.042+05:30  WARN 14760 --- [configWatchTaskScheduler-1] o.s.cloud.consul.config.ConfigWatch      : Error querying consul Key/Values for context 'config/application/'. Message: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:23:01.058+05:30  INFO 14760 --- [RMI TCP Connection(139)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-04-17T01:23:01.228+05:30  INFO 14760 --- [RMI TCP Connection(139)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-17T01:23:01.243+05:30  INFO 14760 --- [RMI TCP Connection(139)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-04-17T01:23:01.317+05:30  INFO 14760 --- [RMI TCP Connection(139)-127.0.0.1] o.s.c.c.s.ConsulServiceRegistry          : Deregistering service with consul: g3-patient-health-records-service-9005
+2023-04-17T01:23:01.325+05:30  WARN 14760 --- [RMI TCP Connection(139)-127.0.0.1] .s.c.a.CommonAnnotationBeanPostProcessor : Destroy method on bean with name 'consulAutoServiceRegistration' threw an exception: com.ecwid.consul.transport.TransportException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8500 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2023-04-17T01:23:01.361+05:30  INFO 14760 --- [RMI TCP Connection(139)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'

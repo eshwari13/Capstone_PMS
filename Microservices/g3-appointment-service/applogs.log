@@ -1,0 +1,207 @@
+2023-04-19T12:45:14.223+05:30  INFO 16600 --- [restartedMain] c.c.application.AppointmentApplication   : Starting AppointmentApplication using Java 17.0.6 with PID 16600 (C:\Users\prath\OneDrive\Desktop\krunalfinalnew\Capstone-PMS\Microservices\g3-appointment-service\target\classes started by prath in C:\Users\prath\OneDrive\Desktop\krunalfinalnew\Capstone-PMS\Microservices\g3-appointment-service)
+2023-04-19T12:45:14.232+05:30  INFO 16600 --- [restartedMain] c.c.application.AppointmentApplication   : The following 1 profile is active: "production"
+2023-04-19T12:45:14.293+05:30  INFO 16600 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-19T12:45:14.293+05:30  INFO 16600 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-19T12:45:15.939+05:30  INFO 16600 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-19T12:45:16.142+05:30  INFO 16600 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 192 ms. Found 1 JPA repository interfaces.
+2023-04-19T12:45:16.449+05:30  INFO 16600 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=18418bed-9b38-341b-bf9d-8f446204b207
+2023-04-19T12:45:16.581+05:30  INFO 16600 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-04-19T12:45:16.642+05:30  INFO 16600 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-04-19T12:45:17.136+05:30  INFO 16600 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9003 (http)
+2023-04-19T12:45:17.148+05:30  INFO 16600 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-19T12:45:17.149+05:30  INFO 16600 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-04-19T12:45:17.227+05:30  INFO 16600 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-19T12:45:17.229+05:30  INFO 16600 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2934 ms
+2023-04-19T12:45:17.509+05:30  INFO 16600 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-19T12:45:17.584+05:30  INFO 16600 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-19T12:45:17.956+05:30  INFO 16600 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-19T12:45:19.756+05:30  INFO 16600 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7abdfcda
+2023-04-19T12:45:19.757+05:30  INFO 16600 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-19T12:45:20.129+05:30  INFO 16600 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-04-19T12:45:21.458+05:30  INFO 16600 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-19T12:45:21.470+05:30  INFO 16600 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-19T12:45:21.975+05:30  WARN 16600 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-19T12:45:23.552+05:30  INFO 16600 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-19T12:45:23.730+05:30  WARN 16600 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-04-19T12:45:23.737+05:30  INFO 16600 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-19T12:45:23.892+05:30  INFO 16600 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9003 (http) with context path ''
+2023-04-19T12:45:23.896+05:30  INFO 16600 --- [restartedMain] o.s.c.c.s.ConsulServiceRegistry          : Registering service with consul: NewService{id='g3-appointment-service-9003', name='g3-appointment-service', tags=[], address='PRATHAMESH', meta={secure=false}, port=9003, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='10s', ttl='null', http='http://PRATHAMESH:9003/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+2023-04-19T12:45:43.867+05:30 ERROR 16600 --- [catalogWatchTaskScheduler-1] o.s.c.c.discovery.ConsulDiscoveryClient  : Error watching Consul CatalogServices
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.ConnectTimeoutException: Connect to ec2-52-66-213-24.ap-south-1.compute.amazonaws.com:8500 [ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/52.66.213.24, ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/64:ff9b:0:0:0:0:3442:d518] failed: Connect timed out
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makeGetRequest(AbstractHttpTransport.java:36) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makeGetRequest(ConsulRawClient.java:139) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.catalog.CatalogConsulClient.getCatalogServices(CatalogConsulClient.java:143) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.getCatalogServices(ConsulClient.java:400) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.discovery.ConsulCatalogWatch.catalogServicesWatch(ConsulCatalogWatch.java:130) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.http.conn.ConnectTimeoutException: Connect to ec2-52-66-213-24.ap-south-1.compute.amazonaws.com:8500 [ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/52.66.213.24, ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/64:ff9b:0:0:0:0:3442:d518] failed: Connect timed out
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 12 common frames omitted
+Caused by: java.net.SocketTimeoutException: Connect timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:546) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 24 common frames omitted
+
+2023-04-19T12:45:43.913+05:30 ERROR 16600 --- [restartedMain] o.s.c.c.s.ConsulServiceRegistry          : Error registering service with consul: NewService{id='g3-appointment-service-9003', name='g3-appointment-service', tags=[], address='PRATHAMESH', meta={secure=false}, port=9003, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='10s', ttl='null', http='http://PRATHAMESH:9003/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+
+com.ecwid.consul.transport.TransportException: org.apache.http.conn.ConnectTimeoutException: Connect to ec2-52-66-213-24.ap-south-1.compute.amazonaws.com:8500 [ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/52.66.213.24, ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/64:ff9b:0:0:0:0:3442:d518] failed: Connect timed out
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makePutRequest(AbstractHttpTransport.java:49) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makePutRequest(ConsulRawClient.java:163) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.agent.AgentConsulClient.agentServiceRegister(AgentConsulClient.java:273) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.agentServiceRegister(ConsulClient.java:310) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.serviceregistry.ConsulServiceRegistry.register(ConsulServiceRegistry.java:67) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.consul.serviceregistry.ConsulServiceRegistry.register(ConsulServiceRegistry.java:43) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.register(AbstractAutoServiceRegistration.java:264) ~[spring-cloud-commons-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.consul.serviceregistry.ConsulAutoServiceRegistration.register(ConsulAutoServiceRegistration.java:80) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.start(AbstractAutoServiceRegistration.java:156) ~[spring-cloud-commons-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.consul.serviceregistry.ConsulAutoServiceRegistration.start(ConsulAutoServiceRegistration.java:70) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.consul.serviceregistry.ConsulAutoServiceRegistrationListener.onApplicationEvent(ConsulAutoServiceRegistrationListener.java:60) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:413) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:47) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:934) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:587) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.4.jar:3.0.4]
+	at com.capstone.application.AppointmentApplication.main(AppointmentApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.4.jar:3.0.4]
+Caused by: org.apache.http.conn.ConnectTimeoutException: Connect to ec2-52-66-213-24.ap-south-1.compute.amazonaws.com:8500 [ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/52.66.213.24, ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/64:ff9b:0:0:0:0:3442:d518] failed: Connect timed out
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 36 common frames omitted
+Caused by: java.net.SocketTimeoutException: Connect timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:546) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 48 common frames omitted
+
+2023-04-19T12:45:43.916+05:30  WARN 16600 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2023-04-19T12:45:43.922+05:30  INFO 16600 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-19T12:45:43.925+05:30  INFO 16600 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-19T12:45:43.934+05:30  INFO 16600 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-19T12:45:43.949+05:30  INFO 16600 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-19T12:45:43.972+05:30  INFO 16600 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-04-19T12:45:43.992+05:30 ERROR 16600 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-6.0.6.jar:6.0.6]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:934) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:587) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.4.jar:3.0.4]
+	at com.capstone.application.AppointmentApplication.main(AppointmentApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.4.jar:3.0.4]
+Caused by: com.ecwid.consul.transport.TransportException: org.apache.http.conn.ConnectTimeoutException: Connect to ec2-52-66-213-24.ap-south-1.compute.amazonaws.com:8500 [ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/52.66.213.24, ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/64:ff9b:0:0:0:0:3442:d518] failed: Connect timed out
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:83) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.transport.AbstractHttpTransport.makePutRequest(AbstractHttpTransport.java:49) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulRawClient.makePutRequest(ConsulRawClient.java:163) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.agent.AgentConsulClient.agentServiceRegister(AgentConsulClient.java:273) ~[consul-api-1.4.5.jar:na]
+	at com.ecwid.consul.v1.ConsulClient.agentServiceRegister(ConsulClient.java:310) ~[consul-api-1.4.5.jar:na]
+	at org.springframework.cloud.consul.serviceregistry.ConsulServiceRegistry.register(ConsulServiceRegistry.java:67) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.consul.serviceregistry.ConsulServiceRegistry.register(ConsulServiceRegistry.java:43) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.register(AbstractAutoServiceRegistration.java:264) ~[spring-cloud-commons-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.consul.serviceregistry.ConsulAutoServiceRegistration.register(ConsulAutoServiceRegistration.java:80) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.start(AbstractAutoServiceRegistration.java:156) ~[spring-cloud-commons-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.consul.serviceregistry.ConsulAutoServiceRegistration.start(ConsulAutoServiceRegistration.java:70) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.cloud.consul.serviceregistry.ConsulAutoServiceRegistrationListener.onApplicationEvent(ConsulAutoServiceRegistrationListener.java:60) ~[spring-cloud-consul-discovery-4.0.1.jar:4.0.1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:413) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.6.jar:6.0.6]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:47) ~[spring-boot-3.0.4.jar:3.0.4]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-6.0.6.jar:6.0.6]
+	... 18 common frames omitted
+Caused by: org.apache.http.conn.ConnectTimeoutException: Connect to ec2-52-66-213-24.ap-south-1.compute.amazonaws.com:8500 [ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/52.66.213.24, ec2-52-66-213-24.ap-south-1.compute.amazonaws.com/64:ff9b:0:0:0:0:3442:d518] failed: Connect timed out
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:221) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140) ~[httpclient-4.5.14.jar:4.5.14]
+	at com.ecwid.consul.transport.AbstractHttpTransport.executeRequest(AbstractHttpTransport.java:70) ~[consul-api-1.4.5.jar:na]
+	... 36 common frames omitted
+Caused by: java.net.SocketTimeoutException: Connect timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:546) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75) ~[httpclient-4.5.14.jar:4.5.14]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.14.jar:4.5.14]
+	... 48 common frames omitted
+
